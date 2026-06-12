@@ -14,7 +14,6 @@
         .step-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .progress-bar { transition: width 0.3s ease; }
-        /* Custom scrollbar for role selection */
         .role-grid { max-height: 400px; overflow-y: auto; }
         .role-grid::-webkit-scrollbar { width: 6px; }
         .role-grid::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 3px; }
@@ -31,21 +30,23 @@
     </header>
 
     <!-- Urgent Vacancy Banner -->
-    <div class="max-w-3xl mx-auto px-4 -mt-4">
+    <div class="max-w-3xl mx-auto px-4 pt-6">
         <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg shadow-sm flex items-start gap-3">
-            <svg class="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <svg class="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
             <div>
                 <h3 class="font-bold text-amber-800 text-sm uppercase tracking-wide">🚨 Urgent Vacancy: Public Relations Officer (PRO)</h3>
                 <p class="text-amber-700 text-sm mt-1">We are actively seeking a dedicated PRO to lead our external communications. If you have a flair for media, writing, and public engagement, we highly encourage you to select this role below!</p>
-           8</div>
+            </div>
         </div>
     </div>
 
     <!-- Main Form Container -->
     <main class="max-w-3xl mx-auto px-4 py-8">
-        
+
         <!-- Progress Bar -->
-        <div class="mb-8">
+        <div class="mb-8" id="progressSection">
             <div class="flex justify-between text-xs font-semibold text-slate-500 mb-2">
                 <span id="step-label">Step 1 of 5: Personal Information</span>
                 <span id="step-percent">20%</span>
@@ -56,13 +57,14 @@
         </div>
 
         <form id="applicationForm" class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden">
-            
-            <!-- SECTION 1 & 2: Introduction & Personal Information -->
+
+            <!-- STEP 1: Introduction & Personal Information -->
             <div class="step-content active p-6 md:p-8" data-step="1">
                 <div class="mb-6">
                     <h2 class="text-xl font-bold text-slate-900 mb-2">Welcome to IEEE UNIBEN</h2>
                     <p class="text-slate-600 leading-relaxed">
-                        Thank you for your interest in serving the IEEE UNIBEN Branch. Active participation is expected, and we are looking for committed students who can take responsibility, deliver results, and drive impact. This form will help our executive team place you in the most suitable unit based on your skills, interests, and commitment level. <span class="font-semibold text-ieee-blue">Final placement will be determined by branch leadership.</span>
+                        Thank you for your interest in serving the IEEE UNIBEN Branch. Active participation is expected, and we are looking for committed students who can take responsibility, deliver results, and drive impact. This form will help our executive team place you in the most suitable unit based on your skills, interests, and commitment level.
+                        <span class="font-semibold text-ieee-blue">Final placement will be determined by branch leadership.</span>
                     </p>
                 </div>
 
@@ -79,7 +81,7 @@
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Department <span class="text-red-500">*</span></label>
                         <input type="text" name="department" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
-                    </div each="level">
+                    </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Level <span class="text-red-500">*</span></label>
                         <select name="level" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
@@ -111,14 +113,14 @@
                 </div>
             </div>
 
-            <!-- SECTION 3: Role Application -->
+            <!-- STEP 2: Role Application -->
             <div class="step-content p-6 md:p-8" data-step="2">
-                <h3 class="text-lg font-semibold text-slate-800 mb-4">Role Application</h3>
+                <h3 class="text-lg font-semibold text-slate-800 mb-2">Role Application</h3>
                 <p class="text-sm text-slate-600 mb-4">Select the role(s) you are applying for. You may select more than one, but please prioritize your top choice.</p>
-                
+
                 <div class="role-grid pr-2 space-y-3">
-                    <!-- PRO Highlighted First -->
-                    <label class="flex items-start p-4 border-2 border-amber-400 bg-amber-50 rounded-lg cursor-pointer hover:bg-amber-100 transition relative">
+                    <!-- PRO — Urgent Vacancy (highlighted) -->
+                    <label class="flex items-start p-4 border-2 border-amber-400 bg-amber-50 rounded-lg cursor-pointer hover:bg-amber-100 transition">
                         <input type="checkbox" name="roles" value="Public Relations Officer (PRO)" class="mt-1 w-5 h-5 text-amber-600 border-slate-300 rounded focus:ring-amber-500">
                         <div class="ml-3">
                             <span class="block font-bold text-amber-900">Public Relations Officer (PRO)</span>
@@ -207,7 +209,7 @@
                 </div>
             </div>
 
-            <!-- SECTION 4: Experience and Interest -->
+            <!-- STEP 3: Experience and Interest -->
             <div class="step-content p-6 md:p-8" data-step="3">
                 <h3 class="text-lg font-semibold text-slate-800 mb-4">Experience and Interest</h3>
                 <div class="space-y-5">
@@ -248,7 +250,7 @@
                 </div>
             </div>
 
-            <!-- SECTION 5 & 6: Commitment and Unit Placement -->
+            <!-- STEP 4: Commitment and Unit Placement -->
             <div class="step-content p-6 md:p-8" data-step="4">
                 <h3 class="text-lg font-semibold text-slate-800 mb-4">Commitment, Responsibility & Unit Placement</h3>
                 <div class="space-y-5">
@@ -260,9 +262,9 @@
                         <label class="block text-sm font-medium text-slate-700 mb-1">What makes you a reliable team member? <span class="text-red-500">*</span></label>
                         <textarea name="reliableTeamMember" required rows="2" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
                     </div>
-                    <div class="flex items-start">
-                        <input type="checkbox" name="willingToCommit" required class="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <label class="ml-3 text-sm text-slate-700">
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" name="willingToCommit" required class="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500 flex-shrink-0">
+                        <label class="text-sm text-slate-700">
                             I am willing to attend meetings, respond on time, and deliver assigned tasks consistently. <span class="text-red-500">*</span>
                         </label>
                     </div>
@@ -270,10 +272,10 @@
                         <label class="block text-sm font-medium text-slate-700 mb-1">What do you expect to contribute to IEEE UNIBEN? <span class="text-red-500">*</span></label>
                         <textarea name="expectedContribution" required rows="3" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
                     </div>
-                    
+
                     <div class="pt-4 border-t border-slate-200">
                         <label class="block text-sm font-semibold text-slate-800 mb-2">Which unit or working area do you believe best fits your strength? <span class="text-red-500">*</span></label>
-                        <p class="text-xs text-slate-500 mb-3">Note: Final placement will be decided by the branch leadership and the unit you will work with.</p>
+                        <p class="text-xs text-slate-500 mb-3">Note: Final placement will be decided by the branch leadership.</p>
                         <select name="preferredUnit" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
                             <option value="">Select a unit</option>
                             <option value="Media and Publicity">Media and Publicity</option>
@@ -290,14 +292,15 @@
                 </div>
             </div>
 
-            <!-- SECTION 7 & 8: Portfolio and Final Declaration -->
+            <!-- STEP 5: Portfolio & Final Declaration -->
             <div class="step-content p-6 md:p-8" data-step="5">
                 <h3 class="text-lg font-semibold text-slate-800 mb-4">Portfolio & Final Declaration</h3>
-                
+
                 <div class="space-y-5 mb-6">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Upload Supporting Materials (CV, Portfolio, Designs, etc.)</label>
-                        <input type="file" name="portfolioFile" multiple accept=".pdf,.doc,.docx,.jpg,.png,.zip" class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-ieee-blue hover:file:bg-blue-100 transition">
+                        <input type="file" name="portfolioFile" multiple accept=".pdf,.doc,.docx,.jpg,.png,.zip"
+                            class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-ieee-blue hover:file:bg-blue-100 transition">
                         <p class="text-xs text-slate-500 mt-1">Max 5MB per file. (PDF, Images, or Zip)</p>
                     </div>
                     <div>
@@ -307,9 +310,9 @@
                 </div>
 
                 <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                    <label class="flex items-start cursor-pointer">
-                        <input type="checkbox" name="finalDeclaration" required class="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 text-sm text-slate-700 leading-relaxed">
+                    <label class="flex items-start gap-3 cursor-pointer">
+                        <input type="checkbox" name="finalDeclaration" required class="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500 flex-shrink-0">
+                        <span class="text-sm text-slate-700 leading-relaxed">
                             I understand that selection is based on merit, commitment, skill, and branch needs. I also understand that final placement will be decided by the branch leadership and the unit I will work with. <span class="text-red-500">*</span>
                         </span>
                     </label>
@@ -318,26 +321,31 @@
 
             <!-- Navigation Buttons -->
             <div class="bg-slate-50 px-6 md:px-8 py-4 border-t border-slate-200 flex justify-between items-center">
-                <button type="button" id="prevBtn" onclick="changeStep(-1)" class="hidden px-6 py-2.5 border border-slate-300 text-slate-700 font-medium rounded-lg hover:bg-slate-100 transition focus:outline-none focus:ring-2 focus:ring-slate-400">
-                    Previous
+                <button type="button" id="prevBtn" onclick="changeStep(-1)"
+                    class="hidden px-6 py-2.5 border border-slate-300 text-slate-700 font-medium rounded-lg hover:bg-slate-100 transition focus:outline-none focus:ring-2 focus:ring-slate-400">
+                    ← Previous
                 </button>
-                <button type="button" id="nextBtn" onclick="changeStep(1)" class="ml-auto px-6 py-2.5 bg-ieee-blue text-white font-medium rounded-lg hover:bg-blue-800 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm">
-                    Next Step
+                <button type="button" id="nextBtn" onclick="changeStep(1)"
+                    class="ml-auto px-6 py-2.5 bg-ieee-blue text-white font-medium rounded-lg hover:bg-blue-800 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm">
+                    Next Step →
                 </button>
-                <button type="submit" id="submitBtn" class="hidden ml-auto px-6 py-2.5 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-sm flex items-center gap-2">
-                    <span>Submit Application</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                <button type="submit" id="submitBtn"
+                    class="hidden ml-auto px-6 py-2.5 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-sm">
+                    Submit Application ✓
                 </button>
             </div>
         </form>
 
-        <!-- Success Message (Hidden by default) -->
-        <div id="successMessage" class="hidden bg-white rounded-xl shadow-lg border border-slate-100 p-8 text-center mt-8">
+        <!-- Success Message -->
+        <div id="successMessage" class="hidden bg-white rounded-xl shadow-lg border border-slate-100 p-8 text-center">
             <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
             </div>
             <h2 class="text-2xl font-bold text-slate-900 mb-2">Application Submitted Successfully!</h2>
-            <p class="text-slate-600 mb-6">Thank you for applying to serve IEEE UNIBEN. We value commitment, excellence, and responsibility. The executive team will review your application and communicate placement decisions soon.</p>
+            <p class="text-slate-600 mb-2">Thank you for applying to serve IEEE UNIBEN. We value commitment, excellence, and responsibility.</p>
+            <p class="text-slate-500 text-sm mb-6">A confirmation email has been sent to your inbox. Please check your spam folder if you don't see it.</p>
             <button onclick="location.reload()" class="px-6 py-2.5 bg-ieee-blue text-white font-medium rounded-lg hover:bg-blue-800 transition">
                 Submit Another Response
             </button>
@@ -360,20 +368,21 @@
             "Step 5 of 5: Portfolio & Declaration"
         ];
 
+        // ── ⚠️  REPLACE THIS with your deployed GAS Web App URL ──────────────
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxiKC6cBdd9x1P6peNeYdo0TQSGMN5B3O2vjtc6dTeIsoQ8tZG8_nHHdA-AmHXYGO7p/exec';
+        // ─────────────────────────────────────────────────────────────────────
+
         function updateUI() {
-            // Hide all steps
             document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
-            // Show current step
             document.querySelector(`.step-content[data-step="${currentStep}"]`).classList.add('active');
-            
-            // Update progress bar
+
             const progress = (currentStep / totalSteps) * 100;
             document.getElementById('progress-bar').style.width = `${progress}%`;
             document.getElementById('step-percent').textContent = `${Math.round(progress)}%`;
             document.getElementById('step-label').textContent = stepLabels[currentStep - 1];
 
-            // Update buttons
             document.getElementById('prevBtn').classList.toggle('hidden', currentStep === 1);
+
             if (currentStep === totalSteps) {
                 document.getElementById('nextBtn').classList.add('hidden');
                 document.getElementById('submitBtn').classList.remove('hidden');
@@ -381,508 +390,54 @@
                 document.getElementById('nextBtn').classList.remove('hidden');
                 document.getElementById('submitBtn').classList.add('hidden');
             }
-            
-            // Scroll to top of form
+
             window.scrollTo({ top: document.querySelector('main').offsetTop - 20, behavior: 'smooth' });
         }
 
         function validateStep(step) {
-            const currentStepEl = document.querySelector(`.step-content[data-step="${step}"]`);
-            const inputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+            const stepEl = document.querySelector(`.step-content[data-step="${step}"]`);
+            const inputs = stepEl.querySelectorAll('input[required], select[required], textarea[required]');
             let isValid = true;
-            
+
             inputs.forEach(input => {
-                if (!input.value.trim() || (input.type === 'checkbox' && !input.checked)) {
+                const empty = input.type === 'checkbox' ? !input.checked : !input.value.trim();
+                if (empty) {
                     isValid = false;
-                    input.classList.add('border-red-500', 'focus:ring-red-500');
-                    input.classList.remove('border-slate-300', 'focus:ring-blue-500');
+                    input.classList.add('border-red-500');
+                    input.classList.remove('border-slate-300');
                 } else {
-                    input.classList.remove('border-red-500', 'focus:ring-red-500');
-                    input.classList.add('border-slate-300', 'focus:ring-blue-500');
+                    input.classList.remove('border-red-500');
+                    input.classList.add('border-slate-300');
                 }
             });
 
-            // Special validation for checkboxes with same name (Roles)
+            // Role selection must have at least one checked
             if (step === 2) {
-                const roleChecked = document.querySelectorAll('input[name="roles"]:checked').length > 0;
-                if (!roleChecked) {
+                const anyChecked = document.querySelectorAll('input[name="roles"]:checked').length > 0;
+                if (!anyChecked) {
                     isValid = false;
-                    alert("Please select at least one role.");
+                    alert('Please select at least one role before proceeding.');
+                    return false;
                 }
             }
 
             if (!isValid) {
-                alert("Please fill in all required fields before proceeding.");
+                alert('Please fill in all required fields before proceeding.');
             }
             return isValid;
         }
 
         function changeStep(direction) {
             if (direction === 1 && !validateStep(currentStep)) return;
-            
-            currentStep += direction;
-            if (currentStep < 1) currentStep = 1;
-            if (currentStep > totalSteps) currentStep = totalSteps;
-            
+            currentStep = Math.min(Math.max(currentStep + direction, 1), totalSteps);
             updateUI();
         }
 
         function toggleExperienceField() {
-            const select = document.getElementById('prevOrgExperience');
+            const select     = document.getElementById('prevOrgExperience');
             const detailsDiv = document.getElementById('prevOrgDetails');
-            const textarea = detailsDiv.querySelector('textarea');
-            
-            if (select.value === 'Yes') {
-                detailsDiv.classList.remove('hidden');
-                textarea.setAttribute('required', 'required');
-            } else {
-                detailsDiv.classList.add('hidden');
-                textarea.removeAttribute('required');
-                textarea.value = '';
-           
-</thinking>
+            const textarea   = detailsDiv.querySelector('textarea');
 
-Here is a complete, professional, and mobile-friendly HTML dashboard form tailored for the **IEEE UNIBEN Branch Role Application**. 
-
-It features a **multi-step wizard design** (section branching) for a smooth mobile experience, conditional logic (e.g., expanding the "previous experience" field only if needed), and is pre-configured to submit data seamlessly to a Google Apps Script Web App.
-
-### 📄 Complete HTML Dashboard Code
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IEEE UNIBEN Branch Role Application Form</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        .ieee-blue { color: #00629B; }
-        .bg-ieee-blue { background-color: #00629B; }
-        .step-content { display: none; animation: fadeIn 0.4s ease-in-out; }
-        .step-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .progress-bar { transition: width 0.3s ease; }
-        /* Custom scrollbar for role selection */
-        .role-grid { max-height: 400px; overflow-y: auto; }
-        .role-grid::-webkit-scrollbar { width: 6px; }
-        .role-grid::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 3px; }
-    </style>
-</head>
-<body class="text-slate-800 antialiased">
-
-    <!-- Header -->
-    <header class="bg-ieee-blue text-white py-6 px-4 shadow-md">
-        <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-2xl md:text-3xl font-bold tracking-tight">IEEE UNIBEN Branch</h1>
-            <p class="text-blue-100 mt-1 text-sm md:text-base">Role Application Form</p>
-        </div>
-    </header>
-
-    <!-- Urgent Vacancy Banner -->
-    <div class="max-w-3xl mx-auto px-4 -mt-4 relative z-10">
-        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg shadow-sm flex items-start gap-3">
-            <svg class="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-            <div>
-                <h3 class="font-bold text-amber-800 text-sm uppercase tracking-wide">🚨 Urgent Vacancy: Public Relations Officer (PRO)</h3>
-                <p class="text-amber-700 text-sm mt-1">We are actively seeking a dedicated PRO to lead our external communications. If you have a flair for media, writing, and public engagement, we highly encourage you to select this role below!</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Form Container -->
-    <main class="max-w-3xl mx-auto px-4 py-8">
-        
-        <!-- Progress Bar -->
-        <div class="mb-8">
-            <div class="flex justify-between text-xs font-semibold text-slate-500 mb-2">
-                <span id="step-label">Step 1 of 5: Personal Information</span>
-                <span id="step-percent">20%</span>
-            </div>
-            <div class="w-full bg-slate-200 rounded-full h-2.5">
-                <div id="progress-bar" class="bg-ieee-blue h-2.5 rounded-full progress-bar" style="width: 20%"></div>
-            </div>
-        </div>
-
-        <form id="applicationForm" class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden">
-            
-            <!-- SECTION 1 & 2: Introduction & Personal Information -->
-            <div class="step-content active p-6 md:p-8" data-step="1">
-                <div class="mb-6">
-                    <h2 class="text-xl font-bold text-slate-900 mb-2">Welcome to IEEE UNIBEN</h2>
-                    <p class="text-slate-600 leading-relaxed">
-                        Thank you for your interest in serving the IEEE UNIBEN Branch. Active participation is expected, and we are looking for committed students who can take responsibility, deliver results, and drive impact. This form will help our executive team place you in the most suitable unit based on your skills, interests, and commitment level. <span class="font-semibold text-ieee-blue">Final placement will be determined by branch leadership.</span>
-                    </p>
-                </div>
-
-                <h3 class="text-lg font-semibold text-slate-800 mb-4 border-b pb-2">Personal Information</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="md:col-span-2">
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Full Name <span class="text-red-500">*</span></label>
-                        <input type="text" name="fullName" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Matric Number <span class="text-red-500">*</span></label>
-                        <input type="text" name="matricNumber" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Department <span class="text-red-500">*</span></label>
-                        <input type="text" name="department" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Level <span class="text-red-500">*</span></label>
-                        <select name="level" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
-                            <option value="">Select Level</option>
-                            <option value="100">100 Level</option>
-                            <option value="200">200 Level</option>
-                            <option value="300">300 Level</option>
-                            <option value="400">400 Level</option>
-                            <option value="500">500 Level</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Email Address <span class="text-red-500">*</span></label>
-                        <input type="email" name="email" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
-                        <input type="tel" name="phone" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-sm font-medium text-slate-700 mb-1">IEEE Membership Status <span class="text-red-500">*</span></label>
-                        <select name="ieeeStatus" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
-                            <option value="">Select Status</option>
-                            <option value="Active Member">Active Member</option>
-                            <option value="Student Member">Student Member</option>
-                            <option value="Non-Member (Willing to join)">Non-Member (Willing to join)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION 3: Role Application -->
-            <div class="step-content p-6 md:p-8" data-step="2">
-                <h3 class="text-lg font-semibold text-slate-800 mb-4">Role Application</h3>
-                <p class="text-sm text-slate-600 mb-4">Select the role(s) you are applying for. You may select more than one, but please prioritize your top choice.</p>
-                
-                <div class="role-grid pr-2 space-y-3">
-                    <!-- PRO Highlighted First -->
-                    <label class="flex items-start p-4 border-2 border-amber-400 bg-amber-50 rounded-lg cursor-pointer hover:bg-amber-100 transition relative">
-                        <input type="checkbox" name="roles" value="Public Relations Officer (PRO)" class="mt-1 w-5 h-5 text-amber-600 border-slate-300 rounded focus:ring-amber-500">
-                        <div class="ml-3">
-                            <span class="block font-bold text-amber-900">Public Relations Officer (PRO)</span>
-                            <span class="inline-block mt-1 px-2 py-0.5 bg-amber-200 text-amber-800 text-xs font-bold rounded-full">🚨 URGENT VACANCY</span>
-                            <p class="text-xs text-amber-800 mt-1">Lead external communications, manage branch image, and handle media relations.</p>
-                        </div>
-                    </label>
-
-                    <!-- Other Roles -->
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Branch Archivist" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Branch Archivist</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Branch Photographer" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Branch Photographer</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Branch Videographer" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Branch Videographer</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Social Media Manager" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Social Media Manager</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Graphics Lead" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Graphics Lead</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Website Administrator" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Website Administrator</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Membership Coordinator" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Membership Coordinator</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Volunteer Coordinator" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Volunteer Coordinator</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Sponsorship Officer" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Sponsorship Officer</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Industry Relations Officer" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Industry Relations Officer</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Training Coordinator" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Training Coordinator</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Project Coordinator" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Project Coordinator</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Research Coordinator" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Research Coordinator</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Event Logistics Officer" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Event Logistics Officer</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Master of Ceremonies (MC) Coordinator" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Master of Ceremonies (MC) Coordinator</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Welfare Officer" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Welfare Officer</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Innovation Challenge Coordinator" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Innovation Challenge Coordinator</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Alumni Relations Officer" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Alumni Relations Officer</span>
-                    </label>
-                    <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
-                        <input type="checkbox" name="roles" value="Data & Analytics Officer" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 font-medium text-slate-700">Data & Analytics Officer</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- SECTION 4: Experience and Interest -->
-            <div class="step-content p-6 md:p-8" data-step="3">
-                <h3 class="text-lg font-semibold text-slate-800 mb-4">Experience and Interest</h3>
-                <div class="space-y-5">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Why do you want this role? <span class="text-red-500">*</span></label>
-                        <textarea name="whyRole" required rows="3" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Share your motivation..."></textarea>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">What relevant experience or skills do you have? <span class="text-red-500">*</span></label>
-                        <textarea name="relevantSkills" required rows="3" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">What tools, platforms, or software can you use?</label>
-                        <input type="text" name="toolsSoftware" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="e.g., Canva, Adobe Premiere, Excel, Python, etc.">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Have you handled responsibilities in any organization before? <span class="text-red-500">*</span></label>
-                        <select name="prevOrgExperience" id="prevOrgExperience" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white" onchange="toggleExperienceField()">
-                            <option value="">Select an option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-                    <div id="prevOrgDetails" class="hidden">
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Please explain your previous responsibilities:</label>
-                        <textarea name="prevOrgDetailsText" rows="3" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">How many hours per week can you realistically dedicate? <span class="text-red-500">*</span></label>
-                        <select name="hoursPerWeek" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
-                            <option value="">Select hours</option>
-                            <option value="1-3 hours">1 - 3 hours</option>
-                            <option value="4-6 hours">4 - 6 hours</option>
-                            <option value="7-10 hours">7 - 10 hours</option>
-                            <option value="10+ hours">10+ hours</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION 5 & 6: Commitment and Unit Placement -->
-            <div class="step-content p-6 md:p-8" data-step="4">
-                <h3 class="text-lg font-semibold text-slate-800 mb-4">Commitment, Responsibility & Unit Placement</h3>
-                <div class="space-y-5">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">How do you handle deadlines? <span class="text-red-500">*</span></label>
-                        <textarea name="handleDeadlines" required rows="2" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">What makes you a reliable team member? <span class="text-red-500">*</span></label>
-                        <textarea name="reliableTeamMember" required rows="2" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
-                    </div>
-                    <div class="flex items-start">
-                        <input type="checkbox" name="willingToCommit" required class="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <label class="ml-3 text-sm text-slate-700">
-                            I am willing to attend meetings, respond on time, and deliver assigned tasks consistently. <span class="text-red-500">*</span>
-                        </label>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">What do you expect to contribute to IEEE UNIBEN? <span class="text-red-500">*</span></label>
-                        <textarea name="expectedContribution" required rows="3" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
-                    </div>
-                    
-                    <div class="pt-4 border-t border-slate-200">
-                        <label class="block text-sm font-semibold text-slate-800 mb-2">Which unit or working area do you believe best fits your strength? <span class="text-red-500">*</span></label>
-                        <p class="text-xs text-slate-500 mb-3">Note: Final placement will be decided by the branch leadership and the unit you will work with.</p>
-                        <select name="preferredUnit" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
-                            <option value="">Select a unit</option>
-                            <option value="Media and Publicity">Media and Publicity</option>
-                            <option value="Technical and Projects">Technical and Projects</option>
-                            <option value="Membership and Welfare">Membership and Welfare</option>
-                            <option value="Partnerships and External Relations">Partnerships and External Relations</option>
-                            <option value="Operations and Logistics">Operations and Logistics</option>
-                            <option value="Research and Innovation">Research and Innovation</option>
-                            <option value="Documentation and Records">Documentation and Records</option>
-                            <option value="Design and Digital Media">Design and Digital Media</option>
-                            <option value="Open to placement by the branch">I am open to placement by the branch</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION 7 & 8: Portfolio and Final Declaration -->
-            <div class="step-content p-6 md:p-8" data-step="5">
-                <h3 class="text-lg font-semibold text-slate-800 mb-4">Portfolio & Final Declaration</h3>
-                
-                <div class="space-y-5 mb-6">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Upload Supporting Materials (CV, Portfolio, Designs, etc.)</label>
-                        <input type="file" name="portfolioFile" multiple accept=".pdf,.doc,.docx,.jpg,.png,.zip" class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-ieee-blue hover:file:bg-blue-100 transition">
-                        <p class="text-xs text-slate-500 mt-1">Max 5MB per file. (PDF, Images, or Zip)</p>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Or provide links to your work (Social media, websites, videos, writing samples)</label>
-                        <textarea name="portfolioLinks" rows="3" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="https://..."></textarea>
-                    </div>
-                </div>
-
-                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                    <label class="flex items-start cursor-pointer">
-                        <input type="checkbox" name="finalDeclaration" required class="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
-                        <span class="ml-3 text-sm text-slate-700 leading-relaxed">
-                            I understand that selection is based on merit, commitment, skill, and branch needs. I also understand that final placement will be decided by the branch leadership and the unit I will work with. <span class="text-red-500">*</span>
-                        </span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Navigation Buttons -->
-            <div class="bg-slate-50 px-6 md:px-8 py-4 border-t border-slate-200 flex justify-between items-center">
-                <button type="button" id="prevBtn" onclick="changeStep(-1)" class="hidden px-6 py-2.5 border border-slate-300 text-slate-700 font-medium rounded-lg hover:bg-slate-100 transition focus:outline-none focus:ring-2 focus:ring-slate-400">
-                    Previous
-                </button>
-                <button type="button" id="nextBtn" onclick="changeStep(1)" class="ml-auto px-6 py-2.5 bg-ieee-blue text-white font-medium rounded-lg hover:bg-blue-800 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm">
-                    Next Step
-                </button>
-                <button type="submit" id="submitBtn" class="hidden ml-auto px-6 py-2.5 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-sm flex items-center gap-2">
-                    <span>Submit Application</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </button>
-            </div>
-        </form>
-
-        <!-- Success Message (Hidden by default) -->
-        <div id="successMessage" class="hidden bg-white rounded-xl shadow-lg border border-slate-100 p-8 text-center mt-8">
-            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            </div>
-            <h2 class="text-2xl font-bold text-slate-900 mb-2">Application Submitted Successfully!</h2>
-            <p class="text-slate-600 mb-6">Thank you for applying to serve IEEE UNIBEN. We value commitment, excellence, and responsibility. The executive team will review your application and communicate placement decisions soon.</p>
-            <button onclick="location.reload()" class="px-6 py-2.5 bg-ieee-blue text-white font-medium rounded-lg hover:bg-blue-800 transition">
-                Submit Another Response
-            </button>
-        </div>
-
-    </main>
-
-    <footer class="text-center py-8 text-slate-500 text-sm">
-        <p>&copy; 2026 IEEE University of Benin (UNIBEN) Student Branch. All rights reserved.</p>
-    </footer>
-
-    <script>
-        let currentStep = 1;
-        const totalSteps = 5;
-        const stepLabels = [
-            "Step 1 of 5: Personal Information",
-            "Step 2 of 5: Role Application",
-            "Step 3 of 5: Experience & Interest",
-            "Step 4 of 5: Commitment & Unit Placement",
-            "Step 5 of 5: Portfolio & Declaration"
-        ];
-
-        function updateUI() {
-            // Hide all steps
-            document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
-            // Show current step
-            document.querySelector(`.step-content[data-step="${currentStep}"]`).classList.add('active');
-            
-            // Update progress bar
-            const progress = (currentStep / totalSteps) * 100;
-            document.getElementById('progress-bar').style.width = `${progress}%`;
-            document.getElementById('step-percent').textContent = `${Math.round(progress)}%`;
-            document.getElementById('step-label').textContent = stepLabels[currentStep - 1];
-
-            // Update buttons
-            document.getElementById('prevBtn').classList.toggle('hidden', currentStep === 1);
-            if (currentStep === totalSteps) {
-                document.getElementById('nextBtn').classList.add('hidden');
-                document.getElementById('submitBtn').classList.remove('hidden');
-            } else {
-                document.getElementById('nextBtn').classList.remove('hidden');
-                document.getElementById('submitBtn').classList.add('hidden');
-            }
-            
-            // Scroll to top of form
-            window.scrollTo({ top: document.querySelector('main').offsetTop - 20, behavior: 'smooth' });
-        }
-
-        function validateStep(step) {
-            const currentStepEl = document.querySelector(`.step-content[data-step="${step}"]`);
-            const inputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
-            let isValid = true;
-            
-            inputs.forEach(input => {
-                if (!input.value.trim() || (input.type === 'checkbox' && !input.checked)) {
-                    isValid = false;
-                    input.classList.add('border-red-500', 'focus:ring-red-500');
-                    input.classList.remove('border-slate-300', 'focus:ring-blue-500');
-                } else {
-                    input.classList.remove('border-red-500', 'focus:ring-red-500');
-                    input.classList.add('border-slate-300', 'focus:ring-blue-500');
-                }
-            });
-
-            // Special validation for checkboxes with same name (Roles)
-            if (step === 2) {
-                const roleChecked = document.querySelectorAll('input[name="roles"]:checked').length > 0;
-                if (!roleChecked) {
-                    isValid = false;
-                    alert("Please select at least one role.");
-                }
-            }
-
-            if (!isValid) {
-                alert("Please fill in all required fields before proceeding.");
-            }
-            return isValid;
-        }
-
-        function changeStep(direction) {
-            if (direction === 1 && !validateStep(currentStep)) return;
-            
-            currentStep += direction;
-            if (currentStep < 1) currentStep = 1;
-            if (currentStep > totalSteps) currentStep = totalSteps;
-            
-            updateUI();
-        }
-
-        function toggleExperienceField() {
-            const select = document.getElementById('prevOrgExperience');
-            const detailsDiv = document.getElementById('prevOrgDetails');
-            const textarea = detailsDiv.querySelector('textarea');
-            
             if (select.value === 'Yes') {
                 detailsDiv.classList.remove('hidden');
                 textarea.setAttribute('required', 'required');
@@ -893,38 +448,41 @@ It features a **multi-step wizard design** (section branching) for a smooth mobi
             }
         }
 
-        // Handle Form Submission to Google Apps Script
-        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+        // ── Form Submission ───────────────────────────────────────────────────
+        document.getElementById('applicationForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
             if (!validateStep(currentStep)) return;
 
             const submitBtn = document.getElementById('submitBtn');
-            const originalBtnText = submitBtn.innerHTML;
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...`;
+            submitBtn.innerHTML = `
+                <svg class="animate-spin inline-block mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg> Submitting...`;
+
+            // Collect checked roles into a single comma-separated string
+            const checkedRoles = [...document.querySelectorAll('input[name="roles"]:checked')]
+                .map(cb => cb.value)
+                .join(', ');
 
             const formData = new FormData(this);
-            
-            // ⚠️ REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-            const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+            formData.delete('roles');            // remove individual checkbox entries
+            formData.append('roles', checkedRoles); // add combined string
 
-            fetch(scriptURL, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                document.getElementById('applicationForm').classList.add('hidden');
-                document.querySelector('.mb-8').classList.add('hidden'); // Hide progress bar
-                document.getElementById('successMessage').classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                alert('There was an error submitting your form. Please try again or contact the executive team.');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-            });
+            fetch(SCRIPT_URL, { method: 'POST', body: formData })
+                .then(() => {
+                    document.getElementById('applicationForm').classList.add('hidden');
+                    document.getElementById('progressSection').classList.add('hidden');
+                    document.getElementById('successMessage').classList.remove('hidden');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                })
+                .catch(err => {
+                    console.error('Submission error:', err);
+                    alert('There was an error submitting your form. Please try again or contact the executive team.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Submit Application ✓';
+                });
         });
     </script>
 </body>
